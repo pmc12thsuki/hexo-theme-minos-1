@@ -134,6 +134,8 @@ const MOMENTJS_SUPPORTED_LANGUAGES = [
   'zh-tw',
 ];
 
+const capitalize = (s) => s && s[0].toUpperCase() + s.slice(1);
+
 function getMomentLocale(language) {
   let locale = formatRfc5646(language);
   if (MOMENTJS_SUPPORTED_LANGUAGES.indexOf(locale) === -1) {
@@ -187,13 +189,19 @@ hexo.extend.helper.register('page_title', function () {
       title += ': ' + page.year;
     }
   } else if (this.is_category()) {
-    title = this.__('common.category') + ': ' + page.category;
+    if (page.category === 'life') {
+      title = '生活雜記';
+    } else if (page.category === 'technology') {
+      title = '技術分享';
+    } else {
+      title = '文章類別' + ': ' + capitalize(page.category);
+    }
   } else if (this.is_tag()) {
-    title = this.__('common.tag') + ': ' + page.tag;
+    title = '標籤類別' + ': ' + capitalize(page.tag);
   } else if (this.is_categories()) {
-    title = this.__('common.categories');
+    title = '文章列表';
   } else if (this.is_tags()) {
-    title = this.__('common.tags');
+    title = '標籤分類';
   }
 
   const getConfig = hexo.extend.helper.get('get_config').bind(this);
