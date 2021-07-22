@@ -48,6 +48,10 @@ if (languages.length > 1) {
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
 <% } %>
 
+<% if (has_config('share.install_url')) { %>
+<script type='text/javascript' src='<%= get_config('share.install_url') %>' async='async'></script>
+<% } %>
+
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/<%= get_config('article.highlight', 'atom-one-light') %>.min.css">
 
 <%- css('css/style') %>
