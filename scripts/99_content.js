@@ -137,6 +137,7 @@ const MOMENTJS_SUPPORTED_LANGUAGES = [
 const capitalize = (s) => s && s[0].toUpperCase() + s.slice(1);
 
 function getMomentLocale(language) {
+  return 'zh-tw';
   let locale = formatRfc5646(language);
   if (MOMENTJS_SUPPORTED_LANGUAGES.indexOf(locale) === -1) {
     if (MOMENTJS_SUPPORTED_LANGUAGES.indexOf(formatIso639(locale)) > -1) {
@@ -217,7 +218,7 @@ hexo.extend.helper.register('page_title', function () {
 hexo.extend.helper.register(
   'format_date',
   injectMomentLocale(function (date) {
-    return moment(date).format('MMM D');
+    return moment(date).format('MM月DD日');
   })
 );
 
