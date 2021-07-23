@@ -1,9 +1,9 @@
-$family-serif: "Ovo", "Georgia", "STZhongsong", "Microsoft YaHei", serif;
+$family-serif: "Helvetica", "PingFang", "Microsoft YaHei", serif;
 $family-mono: "Source Code Pro", monospace, "Microsoft YaHei";
 $border-color: #dbdbdb;
 
 body {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
 }
 
 .w-100 {
@@ -23,7 +23,7 @@ body {
 }
 
 body, button, input, select, textarea {
-    // font-family: $family-serif;
+    font-family: $family-serif;
 }
 
 /* customize icon font http://app.fontastic.me */
