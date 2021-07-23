@@ -1,3 +1,17 @@
+<%
+    const categories = (page._categories || page.categories).filter(category => !['technology', 'life'].includes(category.slug)).sort(function(a, b) {
+        const nameA = a.name.toUpperCase();
+        const nameB = b.name.toUpperCase();
+        if (nameA < nameB) {
+            return -1;
+        }
+        if (nameA > nameB) {
+            return 1;
+        }
+        return 0;
+        })
+%>
+
 <section class="section section-heading">
     <div class="container">
         <div class="content">
@@ -8,7 +22,7 @@
 <section class="section section-categories">
     <div class="container">
         <div class="columns is-variable is-1 is-multiline is-mobile">
-            <% (page._categories || page.categories).forEach(category => {%>
+            <% categories.forEach(category => {%>
             <span class="column is-narrow">
                 <a class="tag is-light article-tag" href="<%= url_for(category.path) %>"><%= category.name.replace(/\w/, c => c.toUpperCase()) %>&nbsp;(<%= category.posts.length%>)</a>
             </span>
@@ -16,7 +30,7 @@
         </div>
 
     <div>
-        <% (page._categories || page.categories).forEach(category => { %>
+        <% categories.forEach(category => { %>
         <div class="archive content">
             <h4 class="title is-4" id="<%= category %>"><%= category.name.replace(/\w/, c => c.toUpperCase()) %></h4>
             <div class="articles">
