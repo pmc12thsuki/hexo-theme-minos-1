@@ -199,7 +199,7 @@ a.tag.article-tag {
 
     .article-more-link a {
         font-size: .9rem;
-        color: darkgray;
+        color: rgb(139, 139, 139);
         border-bottom: 1px dotted transparent;
         &:hover {
             border-bottom-color: darkgray;
@@ -534,9 +534,20 @@ a.tag.article-tag {
     }
 }
 
-code, pre {
-    font-size: 0.85rem;
+// code, pre {
+//     font-family: $family-mono;
+// }
+
+code {
+    // color: inherit !important;
+    color: #ff2d57;
+    padding-top: .2em;
+    padding-bottom: .2em;
+    margin: 0;
+    font-size: 90%;
+    border-radius: 3px;
     font-family: $family-mono;
+    background-color: rgba(0, 0, 0, 0.035);
 }
 
 figure.highlight {
