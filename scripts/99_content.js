@@ -209,7 +209,7 @@ hexo.extend.helper.register('page_title', function () {
 
   return [title, getConfig('title', '', true)]
     .filter((str) => typeof str !== 'undefined' && str.trim() !== '')
-    .join(' - ');
+    .join(' | ');
 });
 
 /**
